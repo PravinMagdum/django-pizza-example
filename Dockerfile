@@ -1,1 +1,1 @@
-FROM ubuntu
+FROM newtmitch/sonar-scanner
