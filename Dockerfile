@@ -13,10 +13,11 @@ WORKDIR /root
 RUN set -x &&\
  curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.0.0.1744-linux.zip &&\
  unzip sonarscanner.zip &&\
- rm sonarscanner.zip &&\
- rm sonar-scanner-linux/jre -rf &&\
-# ensure Sonar uses the provided Java for musl instead of a borked glibc one
- sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner-linux/bin/sonar-scanner
+ rm sonarscanner.zip 
+ # &&\
+ #rm sonar-scanner/jre -rf &&\
+ # ensure Sonar uses the provided Java for musl instead of a borked glibc one
+ #sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner-linux/bin/sonar-scanner
  
 ENV SONAR_RUNNER_HOME=/root/sonar-scanner-linux
 ENV PATH $PATH:/root/sonar-scanner-linux/bin
