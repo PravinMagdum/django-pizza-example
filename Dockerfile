@@ -1,6 +1,6 @@
 FROM jenkins/inbound-agent:latest-jdk11
 RUN apk add --no-cache curl grep sed unzip nodejs npm
- 
+WORKDIR /root 
 RUN set -x &&\
  curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$RELEASE-linux.zip &&\
  unzip sonarscanner.zip &&\
