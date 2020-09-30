@@ -1,5 +1,5 @@
 FROM jenkins/inbound-agent:latest-jdk11
-
+USER root
 RUN set -eux && \
  cd && \
  apt-get --quiet --quiet update && \
@@ -23,3 +23,4 @@ ENV PATH $PATH:/root/sonar-scanner-$RELEASE-linux/bin
 RUN mkdir -p /opt/app
 wORKDIR /opt/app
 COPY *  /opt/app/
+User Jenkins
