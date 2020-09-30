@@ -8,8 +8,10 @@ RUN set -eux && \
  build-essential \
  curl \
  grep sed unzip nodejs npm
- 
-WORKDIR /root 
+User jenknis
+RUN mkdir -p /opt/scanner
+wORKDIR /opt/scanner
+
 RUN set -x &&\
  curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.0.0.1744-linux.zip &&\
  unzip sonarscanner.zip &&\
@@ -18,10 +20,9 @@ RUN set -x &&\
  # ensure Sonar uses the provided Java for musl instead of a borked glibc one
  sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner-4.0.0.1744-linux/bin/sonar-scanner
  
-ENV SONAR_RUNNER_HOME=/root/sonar-scanner-4.0.0.1744-linux/bin
-ENV PATH $PATH:/root/sonar-scanner-4.0.0.1744-linux/bin
-RUN chown jenkins:jenkins sonar-scanner-4.0.0.1744-linux/*
+ENV SONAR_RUNNER_HOME=/opt/scanner/sonar-scanner-4.0.0.1744-linux/bin
+ENV PATH $PATH:/opt/scanner/sonar-scanner-4.0.0.1744-linux/bin
+
 RUN mkdir -p /opt/app
 wORKDIR /opt/app
 COPY *  /opt/app/
-User jenkins
