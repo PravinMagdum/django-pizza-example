@@ -20,7 +20,7 @@ RUN set -x &&\
  
 ENV SONAR_RUNNER_HOME=/root/sonar-scanner-4.0.0.1744-linux
 ENV PATH $PATH:/root/sonar-scanner-4.0.0.1744-linux
-RUN chmod 755 /root/sonar-scanner-4.0.0.1744-linux
+RUN chown Jenkins /root/sonar-scanner-4.0.0.1744-linux
 RUN mkdir -p /opt/app
 wORKDIR /opt/app
 COPY *  /opt/app/
