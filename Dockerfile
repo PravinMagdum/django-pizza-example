@@ -8,7 +8,8 @@ RUN set -eux && \
  build-essential \
  curl \
  grep sed unzip nodejs npm
-User jenknis
+ 
+User jenkins
 RUN mkdir -p /opt/scanner
 wORKDIR /opt/scanner
 
