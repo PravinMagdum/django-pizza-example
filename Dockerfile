@@ -18,10 +18,10 @@ RUN set -x &&\
  rm sonarscanner.zip  &&\
  rm sonar-scanner-4.0.0.1744-linux/jre -rf &&\
  # ensure Sonar uses the provided Java for musl instead of a borked glibc one
- sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' scanner/sonar-scanner-4.0.0.1744-linux/bin/sonar-scanner
+ sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /home/jenkins/scanner/sonar-scanner-4.0.0.1744-linux/bin/sonar-scanner
  
-ENV SONAR_RUNNER_HOME=scanner/sonar-scanner-4.0.0.1744-linux/bin
-ENV PATH $PATH:scanner/sonar-scanner-4.0.0.1744-linux/bin
+ENV SONAR_RUNNER_HOME=/home/jenkins/scanner/sonar-scanner-4.0.0.1744-linux/bin
+ENV PATH $PATH:/home/jenkins/scanner/sonar-scanner-4.0.0.1744-linux/bin
 
 RUN mkdir -p app
 wORKDIR app
