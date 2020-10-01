@@ -24,7 +24,9 @@ import hudson.tools.*
     def sonar_inst = new SonarInstallation(
         sonar_name,
         sonar_server_url,
+      '',
         sonar_auth_token,
+      '',
         '',
         '',
         new TriggersConfig(),
