@@ -1,8 +1,8 @@
-import hudson.model.*
-import jenkins.model.*
-import hudson.plugins.sonar.*
+import hudson.model.*;
+import jenkins.model.*;
+import hudson.plugins.sonar.*;
 // import hudson.plugins.sonar.model.TriggersConfig
-import hudson.tools.*
+import hudson.tools.*;
   
 
   def sonar_name = "sonar-pm"
@@ -11,8 +11,11 @@ import hudson.tools.*
   def sonar_auth_token = "testtoken"
 
   def instance = Jenkins.getInstance()
+def jenkins1 =jenkins.model.Jenkins.get();
 
-  Thread.start {
+
+ def test= Jenkins.getDescriptor(SonarGlobalConfiguration)
+ 
 
     sleep(1000)
     println("Configuring SonarQube...")
@@ -39,5 +42,5 @@ import hudson.tools.*
     sonar_conf.save()
     
     instance.save()
-  }
+  
     
