@@ -1,7 +1,7 @@
 import hudson.model.*
 import jenkins.model.*
 import hudson.plugins.sonar.*
-import hudson.plugins.sonar.model.TriggersConfig
+// import hudson.plugins.sonar.model.TriggersConfig
 import hudson.tools.*
   
 
@@ -29,7 +29,7 @@ import hudson.tools.*
       '',
         '',
         '',
-        new TriggersConfig(),
+        '',
         ''
     )
     
