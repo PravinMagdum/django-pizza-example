@@ -1,3 +1,5 @@
+import hudson.model.*
+import jenkins.model.*
 import hudson.tools.*;
 import hudson.plugins.sonar.*;
 import hudson.plugins.sonar.model.TriggersConfig;
